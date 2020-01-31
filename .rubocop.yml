@@ -16,3 +16,7 @@ Metrics/LineLength:
     - config/**/*
     - db/seeds.rb
     - lib/tasks/*
+
+Security/Open:
+  Exclude:
+    - db/seeds.rb
