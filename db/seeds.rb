@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'open-uri'
 
 Quote.destroy_all
-puts "Destroyed all quotes"
+puts 'Destroyed all quotes'
 
-url = "https://www.goodreads.com/quotes/list/61714489-romain-niam0r?utf8=%E2%9C%93&sort=date_added"
+url = 'https://www.goodreads.com/quotes/list/61714489-romain-niam0r?utf8=%E2%9C%93&sort=date_added'
 # url = "./app/my_quotes.html"
 doc = Nokogiri::HTML(open(url), nil, Encoding::UTF_8.to_s)
 
@@ -23,10 +25,10 @@ elementList.each do |element|
   # book = quoteText.split("\n")[4].nil? ? '' : quoteText.split("\n")[4].strip // old selector
   book = element.search('a.authorOrTitle').text
 
-  quote = Quote.create({
+  quote = Quote.create(
     content: content,
     author: author,
     author_img: author_img,
     book: book
-  })
+  )
 end
