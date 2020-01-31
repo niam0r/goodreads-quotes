@@ -9,23 +9,23 @@ url = 'https://www.goodreads.com/quotes/list/61714489-romain-niam0r?utf8=%E2%9C%
 # url = "./app/my_quotes.html"
 doc = Nokogiri::HTML(open(url), nil, Encoding::UTF_8.to_s)
 
-elementList = doc.search('.elementList')
-puts "There's #{elementList.length} quotes"
+element_list = doc.search('.elementList')
+puts "There's #{element_list.length} quotes"
 
-elementList.each do |element|
-  quoteText = element.search('.quoteText').text.strip.split('//<![CDATA[')[0]
+element_list.each do |element|
+  quote_text = element.search('.quoteText').text.strip.split('//<![CDATA[')[0]
 
-  content = quoteText.split("\n")[0][1...-1]
+  content = quote_text.split("\n")[0][1...-1]
 
-  # author = quoteText.split("\n")[2].tr(',', '').strip // old selector
+  # author = quote_text.split("\n")[2].tr(',', '').strip // old selector
   author = element.search('span.authorOrTitle').text.strip.gsub(',', '')
 
   author_img = element.search('a > img').empty? ? '' : element.search('a > img').attribute('src').value
 
-  # book = quoteText.split("\n")[4].nil? ? '' : quoteText.split("\n")[4].strip // old selector
+  # book = quote_text.split("\n")[4].nil? ? '' : quote_text.split("\n")[4].strip // old selector
   book = element.search('a.authorOrTitle').text
 
-  quote = Quote.create(
+  Quote.create(
     content: content,
     author: author,
     author_img: author_img,
