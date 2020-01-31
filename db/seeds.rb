@@ -30,5 +30,6 @@ element_list.each do |element|
     author: author,
     author_img: author_img,
     book: book
+    # TODO: link: link to book on goodreads
   )
 end
