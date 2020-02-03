@@ -13,6 +13,7 @@ Documentation:
 
 Metrics/LineLength:
   Exclude:
+    - app/controllers/api/base_controller.rb
     - config/**/*
     - db/seeds.rb
     - lib/tasks/*
@@ -20,3 +21,8 @@ Metrics/LineLength:
 Security/Open:
   Exclude:
     - db/seeds.rb
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - app/controllers/api/base_controller.rb
+    - app/controllers/api/v1/quotes_controller.rb
