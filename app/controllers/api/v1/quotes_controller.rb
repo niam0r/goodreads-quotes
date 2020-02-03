@@ -8,7 +8,8 @@ class Api::V1::QuotesController < Api::V1::BaseController
   # end
 
   def index
-    @quotes = policy_scope(Quote)
+    # @quotes = policy_scope(Quote)
+    @quotes = Quote.all
   end
 
   def show; end
