@@ -12,7 +12,7 @@ AllCops:
 
 Layout/LineLength:
   Exclude:
-    - app/controllers/api/base_controller.rb
+    - app/controllers/api/v1/base_controller.rb
     - config/**/*
     - db/seeds.rb
     - lib/tasks/*
@@ -30,7 +30,7 @@ Security/Open:
 
 Style/ClassAndModuleChildren:
   Exclude:
-    - app/controllers/api/base_controller.rb
+    - app/controllers/api/v1/base_controller.rb
     - app/controllers/api/v1/quotes_controller.rb
 
 Style/Documentation:

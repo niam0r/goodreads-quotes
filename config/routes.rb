@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/react', to: 'pages#react'
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :quotes, only: [ :index, :show ]
+      resources :quotes, only: %i[index show]
     end
   end
 end
