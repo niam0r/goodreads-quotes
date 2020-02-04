@@ -35,23 +35,23 @@ yarn-debug.log*
 # content of react-app .gitignore
 
 # dependencies
-javascrip/react-app/node_modules/*
-javascrip/react-app/.pnp
-javascrip/react-app/.pnp.js
+javascript/react-app/node_modules/*
+javascript/react-app/.pnp
+javascript/react-app/.pnp.js
 
 # testing
-javascrip/react-app/coverage
+javascript/react-app/coverage
 
 # production
-javascrip/react-app/build
+javascript/react-app/build
 
 # misc
-javascrip/react-app/.DS_Store
-javascrip/react-app/.env.local
-javascrip/react-app/.env.development.local
-javascrip/react-app/.env.test.local
-javascrip/react-app/.env.production.local
+javascript/react-app/.DS_Store
+javascript/react-app/.env.local
+javascript/react-app/.env.development.local
+javascript/react-app/.env.test.local
+javascript/react-app/.env.production.local
 
-javascrip/react-app/npm-debug.log*
-javascrip/react-app/yarn-debug.log*
-javascrip/react-app/yarn-error.log*
+javascript/react-app/npm-debug.log*
+javascript/react-app/yarn-debug.log*
+javascript/react-app/yarn-error.log*
