@@ -31,3 +31,27 @@ yarn-debug.log*
 .yarn-integrity
 
 .env
+
+# content of react-app .gitignore
+
+# dependencies
+javascrip/react-app/node_modules/*
+javascrip/react-app/.pnp
+javascrip/react-app/.pnp.js
+
+# testing
+javascrip/react-app/coverage
+
+# production
+javascrip/react-app/build
+
+# misc
+javascrip/react-app/.DS_Store
+javascrip/react-app/.env.local
+javascrip/react-app/.env.development.local
+javascrip/react-app/.env.test.local
+javascrip/react-app/.env.production.local
+
+javascrip/react-app/npm-debug.log*
+javascrip/react-app/yarn-debug.log*
+javascrip/react-app/yarn-error.log*
