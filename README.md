@@ -1,5 +1,10 @@
 # README
 
+
+API staging url: [https://goodreads-quotes-staging.herokuapp.com/api/v1/quotes](https://goodreads-quotes-staging.herokuapp.com/api/v1/quotes)
+
+React staging url: [https://goodreads-quotes-staging.herokuapp.com/react](https://goodreads-quotes-staging.herokuapp.com/react)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
