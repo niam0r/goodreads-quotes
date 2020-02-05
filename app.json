@@ -1,6 +1,6 @@
 {
   "name": "goodreads-quotes",
   "scripts": {
-    "postdeploy": "bundle exec rake db:seed"
+    "postdeploy": "bundle exec rake db:migrate db:seed"
   }
 }
