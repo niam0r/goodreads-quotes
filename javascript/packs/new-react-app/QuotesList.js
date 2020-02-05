@@ -1,20 +1,30 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
+const BASE_URL = 'http://localhost:3000/api/v1';
+
 function QuotesList() {
-  const [quotes, setQuotes] = useState(0);
+  const [quotes, setQuotes] = useState([]);
 
   useEffect(() => {
-    const requestQuotes = async () => {
-      const response = await fetch('/api/v1/quotes');
-      const { data } = await response.json();
-      setQuotes(data);
-    };
-    requestQuotes();
+    let ignore = false;
+
+    async function fetchData() {
+      const result = await axios.get(`${BASE_URL}/quotes`);
+      if (!ignore) setQuotes(result.data);
+    }
+
+    fetchData();
+    return () => { ignore = true; }
   }, []);
 
-  console.log(quotes)
-
-  return quotes.map(quote => <div>{quote.content}</div>);
+  return (
+    <ul>
+      {quotes.map(quote => (
+        <div>{quote.content}</div>
+      ))}
+    </ul>
+  );
 }
 
 export default QuotesList;
