@@ -3,10 +3,10 @@ import axios from 'axios';
 function getQuotes() {
 	async function fetchData() {
 		const response = await axios.get('/api/v1/quotes');
-		if (!ignore) setQuotes(response.data);
+		return response.data;
 	}
 
-  fetchData();
+  return fetchData();
 }
 
 export default getQuotes;

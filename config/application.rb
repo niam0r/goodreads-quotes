@@ -30,7 +30,7 @@ module GoodreadsQuotes
         resource(
           '*',
           headers: :any,
-          methods: [:get, :patch, :put, :delete, :post, :options]
+          methods: %i[get patch put delete post options]
         )
       end
     end

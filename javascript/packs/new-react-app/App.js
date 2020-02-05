@@ -5,13 +5,10 @@ import QuotesList from "./QuotesList";
 
 import getQuotes from './getQuotes';
 
-const quotes = React.createContext(getQuotes());
-
 function App() {
   return (
     <div>
       <h1>React App</h1>
-
       <QuotesList/>
     </div>
   );
