@@ -8,20 +8,19 @@ function QuotesList() {
     let ignore = false;
 
     async function fetchData() {
-      const result = await axios.get('/api/v1/quotes');
-      if (!ignore) setQuotes(result.data);
+      const response = await axios.get('/api/v1/quotes');
+      if (!ignore) setQuotes(response.data);
     }
 
     fetchData();
+
     return () => { ignore = true; }
   }, []);
 
   return (
-    <ul>
-      {quotes.map(quote => (
-        <div>{quote.content}</div>
-      ))}
-    </ul>
+    quotes.map(quote => (
+      <div>{quote.content}</div>
+    ))
   );
 }
 
