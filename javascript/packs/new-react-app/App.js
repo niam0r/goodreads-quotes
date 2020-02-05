@@ -4,9 +4,10 @@ import QuotesList from "./QuotesList";
 
 function App() {
   return (
-    <Router>
-      <QuotesList path="/" />
-    </Router>
+    <div>
+      <h1>React App</h1>
+      <QuotesList/>
+    </div>
   );
 }
 

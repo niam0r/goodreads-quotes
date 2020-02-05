@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 function QuotesList() {
-  const [quotes, setQuotes] = useState([]);
+  const [quotes, setQuotes] = useState(0);
 
   useEffect(() => {
     const requestQuotes = async () => {
@@ -11,6 +11,8 @@ function QuotesList() {
     };
     requestQuotes();
   }, []);
+
+  console.log(quotes)
 
   return quotes.map(quote => <div>{quote.content}</div>);
 }
