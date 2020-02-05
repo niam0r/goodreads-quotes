@@ -1,8 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-const BASE_URL = 'http://localhost:3000/api/v1';
-
 function QuotesList() {
   const [quotes, setQuotes] = useState([]);
 
@@ -10,7 +8,7 @@ function QuotesList() {
     let ignore = false;
 
     async function fetchData() {
-      const result = await axios.get(`${BASE_URL}/quotes`);
+      const result = await axios.get('/api/v1/quotes');
       if (!ignore) setQuotes(result.data);
     }
 
