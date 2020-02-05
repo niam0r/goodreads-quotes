@@ -8,7 +8,6 @@ import getQuotes from './getQuotes';
 function App() {
   return (
     <div>
-      <h1>React App</h1>
       <QuotesList/>
     </div>
   );
