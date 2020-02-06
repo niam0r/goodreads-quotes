@@ -1,39 +1,24 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import renderQuote from './renderQuote';
 
-class QuotesShow extends Component {
-  componentDidMount() {
-    if (!this.props.quote) {
-      this.props.fetchQuote(this.props.match.params.id);
+export default function QuotesShow() {
+  const [quote, setQuote] = useState([]);
+  const { id }  = useParams();
+  
+  // if quote is in the quotes passed down from QuotesList
+  // > get it from the state
+  // else
+  // > fetch from api
+
+	useEffect(() => {
+    async function fetchData() {
+      const response = await axios.get(`/api/v1/quotes/${id}`);
+      setQuote(response.data);
     }
-  }
-  render() {
-    const quote = this.props.quote;
-    if (!quote) {
-      return <p>Loading...</p>;
-    }
-    return (
-      <div>
-        <section className="quote">
-          <blockquote>
-            <p>{quote.content}</p>
-          </blockquote>
-          <div className="avatar-author-book">
-            <img className="avatar-large" src={quote.author_img}/>
-            <div className="author-book">
-              <p><cite><strong>{quote.author}</strong></cite></p>
-              <p><cite>{quote.book}</cite></p>
-            </div>
-          </div>
-        </section>
-        <div className="text-center">
-          <Link className="btn btn-primary btn-cta" to="/">
-            Back to all quotes
-          </Link>
-        </div>
-      </div>
-    );
-  }
+    fetchData();
+  }, []);
+  
+  return renderQuote(quote);
 }
-
-export default QuotesShow;
