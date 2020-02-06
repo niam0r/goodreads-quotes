@@ -30,9 +30,9 @@ function QuotesList() {
                 <p><cite><strong>{quote.author}</strong></cite></p>
                 <p><cite>{quote.book}</cite></p>
               </div>
-              {/* <Link to={`/quotes-react/${quote.id}`} >
+              <Link to={`/quotes/${quote.id}`} >
                 <i className="fas fa-link"></i>
-              </Link> */}
+              </Link>
             </div>
           </section>
         </div>
