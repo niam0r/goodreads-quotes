@@ -10,7 +10,7 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        {/* <Route path="/quotes/:id" component={QuotesShow}/> */}
+        <Route path="/quotes/:id" component={QuotesShow}/>
         <Route path="/" component={QuotesList}/>
       </Switch>
     </Router>
