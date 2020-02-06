@@ -2,5 +2,11 @@
   "name": "goodreads-quotes",
   "scripts": {
     "postdeploy": "bundle exec rake db:migrate db:seed"
-  }
+  },
+  "addons": ["heroku-postgresql"],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ],
 }
