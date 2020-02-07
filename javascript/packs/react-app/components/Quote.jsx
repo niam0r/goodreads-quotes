@@ -1,26 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function renderQuote(props) {
-	const quote = props;
+export default function Quote(quote) {
+	const { author, author_img, book, content, id } = quote;
 
 	if (!quote) {
     return <p>Loading...</p>;
 	}
 	
 	return (
-		<div key={quote.id}>
+		<div key={id}>
 			<section className="quote">
 				<blockquote>
-					<p>{quote.content}</p>
+					<p>{content}</p>
 				</blockquote>
 				<div className="avatar-author-book">
-					<img className="avatar-large" src={quote.author_img} alt={quote.author}/>
+					<img className="avatar-large" src={author_img} alt={author}/>
 					<div className="author-book">
-						<p><cite><strong>{quote.author}</strong></cite></p>
-						<p><cite>{quote.book}</cite></p>
+						<p><cite><strong>{author}</strong></cite></p>
+						<p><cite>{book}</cite></p>
 					</div>
-					<Link to={`/quotes/${quote.id}`} >
+					<Link to={`/quotes/${id}`} >
 						<i className="fas fa-link"></i>
 					</Link>
 				</div>
