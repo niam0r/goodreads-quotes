@@ -1,4 +1,4 @@
-import axios from 'axios';
+import getQuotes from './getQuotes';
 import React, { useEffect, useState } from 'react';
 import renderQuote from './renderQuote';
 
@@ -6,14 +6,9 @@ export default function QuotesList() {
   const [quotes, setQuotes] = useState([]);
 
   useEffect(() => {
-    let ignore = false;
-
-    async function fetchData() {
-      const response = await axios.get('/api/v1/quotes');
-      if (!ignore) setQuotes(response.data);
-    }
-    fetchData();
-    return () => { ignore = true; }
+    getQuotes().then(response => {
+      setQuotes(response.data)
+    });
   }, []);
   
   return (
