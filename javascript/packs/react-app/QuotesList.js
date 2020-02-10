@@ -6,9 +6,7 @@ export default function QuotesList() {
   const [quotes, setQuotes] = useState([]);
 
   useEffect(() => {
-    getQuotes().then(response => {
-      setQuotes(response.data)
-    });
+    getQuotes().then(response => setQuotes(response.data));
   }, []);
   
   return (
