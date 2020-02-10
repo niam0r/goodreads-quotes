@@ -1,4 +1,4 @@
-import getQuotes from './getQuotes';
+import fetchQuotes from './fetchQuotes';
 import React, { useEffect, useState } from 'react';
 import renderQuote from './renderQuote';
 
@@ -6,7 +6,7 @@ export default function QuotesList() {
   const [quotes, setQuotes] = useState([]);
 
   useEffect(() => {
-    getQuotes().then(response => setQuotes(response.data));
+    fetchQuotes().then(response => setQuotes(response.data));
   }, []);
   
   return (
