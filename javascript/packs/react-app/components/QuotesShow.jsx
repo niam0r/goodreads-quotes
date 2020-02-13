@@ -17,10 +17,10 @@ export default function QuotesShow() {
 
   useEffect(() => {
     const quoteFromId = quotes.find(quote => quote.id === id );
+    console.log(quoteFromId);
     setQuote(quoteFromId);
   }, []);
 
-  
 
   // What if quote is undefined?
   return Quote(quote);
