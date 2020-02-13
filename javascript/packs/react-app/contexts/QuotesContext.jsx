@@ -11,9 +11,7 @@ function QuotesProvider({ children }) {
   }, [])
 
 	return (
-		<QuotesContext.Provider value={{ 
-			quotes: quotes
-		}}>
+		<QuotesContext.Provider value={{ quotes: quotes }}>
 			{ children }
 		</QuotesContext.Provider>
 	)

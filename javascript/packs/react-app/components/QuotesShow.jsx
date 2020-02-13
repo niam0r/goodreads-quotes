@@ -1,7 +1,7 @@
 import fetchQuote from '../services/fetchQuote';
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Quote from '../components/Quote';
+import Quote from './Quote';
 import { QuotesContext } from '../contexts/QuotesContext';
 
 export default function QuotesShow() {
@@ -11,7 +11,16 @@ export default function QuotesShow() {
   const { quotes } = useContext(QuotesContext);
   console.log(quotes);
 
-  const quote =  quotes.find(quote => quote.id === id);
+  // const quote = quotes.find(quote => quote.id === id );
+
+  const [ quote, setQuote ] = useState([]);
+
+  useEffect(() => {
+    const quoteFromId = quotes.find(quote => quote.id === id );
+    setQuote(quoteFromId);
+  }, []);
+
+  
 
   // What if quote is undefined?
   return Quote(quote);

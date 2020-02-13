@@ -7,7 +7,7 @@ export default function Quote(quote) {
 	if (!quote) {
     return <p>Loading...</p>;
 	}
-	
+
 	return (
 		<div key={id}>
 			<section className="quote">
@@ -20,6 +20,7 @@ export default function Quote(quote) {
 						<p><cite><strong>{author}</strong></cite></p>
 						<p><cite>{book}</cite></p>
 					</div>
+					{/* Show link to back when showing a single quote */}
 					<Link to={`/quotes/${id}`} >
 						<i className="fas fa-link"></i>
 					</Link>
