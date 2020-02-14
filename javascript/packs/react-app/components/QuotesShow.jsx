@@ -5,7 +5,7 @@ import Quote from './Quote';
 import { QuotesContext } from '../contexts/QuotesContext';
 
 export default function QuotesShow() {
-  const { id }  = useParams();
+  const { id }  =  useParams();
   console.log('id:', id);
   
   const { quotes } = useContext(QuotesContext);
@@ -16,25 +16,16 @@ export default function QuotesShow() {
   const [ quote, setQuote ] = useState([]);
 
   useEffect(() => {
-    const quoteFromId = quotes.find(quote => quote.id === id);
-    console.log('quoteFromId:', quoteFromId);
-    setQuote(quoteFromId);
+    const quoteFromContext = quotes.find(quote => quote.id === parseInt(id));
+    console.log('quoteFromContext:', quoteFromContext);
+    setQuote(quoteFromContext);
   }, []);
 
-
-  // What if quote is undefined?
-  return ( 
-    <Quote quote={quote}/> 
-  );
-
-  // TODO
-  // else
-  // > fetch from api
-  // const [quoteToSet, setQuote] = useState([]);
-
-	// useEffect(() => {
-    // fetchQuote(id).then(response => setQuote(response.data));
-  // }, []);
+  function fetchQuoteFromApi() {
+    return fetchQuote(id).then(response => response.data);
+  };
   
-  // return Quote(quoteToSet);
+  return ( 
+    <Quote quote={quote ? quote : fetchQuoteFromApi()}/> 
+  );
 }
