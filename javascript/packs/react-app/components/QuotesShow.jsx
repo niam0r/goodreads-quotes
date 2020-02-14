@@ -1,4 +1,5 @@
 import fetchQuote from '../services/fetchQuote';
+import { Link } from 'react-router-dom';
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Quote from './Quote';
@@ -15,6 +16,14 @@ export default function QuotesShow() {
   }, [quotes, id]);
   
   return ( 
-    <Quote quote={quote}/> 
+    <div className='container'>
+      <div style={{'text-align': 'center'}}>
+        <Link to='/quotes'>
+          <i className="fas fa-long-arrow-alt-left"></i>
+          Back to all quotes
+        </Link>
+      </div>
+      <Quote quote={quote}/>
+    </div>
   );
 }
