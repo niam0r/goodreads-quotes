@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Switch>
         <QuotesProvider>
-          <Route exact path='/' component={QuotesList}/>
+          <Route exact path='/quotes' component={QuotesList}/>
           <Route path='/quotes/:id' component={QuotesShow}/>
         </QuotesProvider>
       </Switch>
