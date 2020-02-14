@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import Quote from './Quote';
 import { QuotesContext } from '../contexts/QuotesContext';
 
@@ -8,7 +8,7 @@ export default function QuotesList() {
   return (
     <div className='container'>
       <br/>
-        { quotes.map(quote => Quote(quote)) }
+        { quotes.map(quote => <Quote quote={quote} />) }
       <br/>
     </div>
   );

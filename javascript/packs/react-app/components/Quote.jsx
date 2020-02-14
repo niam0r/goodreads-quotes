@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Quote(quote) {
-	const { author, author_img, book, content, id } = quote;
-
+export default function Quote({quote}) {	
 	if (!quote || !quote.id) {
-    return <p>Loading...</p>;
-	}
+		return <p>Loading...</p>;
+	}	
+	const { author, author_img, book, content, id } = quote;
 
 	return (
 		<div key={id}>
