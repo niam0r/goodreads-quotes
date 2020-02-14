@@ -9,7 +9,7 @@ export default function QuotesShow() {
   console.log('id:', id);
   
   const { quotes } = useContext(QuotesContext);
-  console.log(quotes);
+  console.log('quotes:', quotes);
 
   // const quote = quotes.find(quote => quote.id === id );
 
@@ -17,7 +17,7 @@ export default function QuotesShow() {
 
   useEffect(() => {
     const quoteFromId = quotes.find(quote => quote.id === id);
-    console.log(quoteFromId);
+    console.log('quoteFromId:', quoteFromId);
     setQuote(quoteFromId);
   }, []);
 
