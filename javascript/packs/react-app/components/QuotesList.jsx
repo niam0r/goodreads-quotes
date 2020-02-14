@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import Quote from '../components/Quote';
+import Quote from './Quote';
 import { QuotesContext } from '../contexts/QuotesContext';
 
 export default function QuotesList() {

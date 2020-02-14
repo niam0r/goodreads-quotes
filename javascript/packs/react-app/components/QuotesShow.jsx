@@ -13,19 +13,15 @@ export default function QuotesShow() {
 
   // const quote = quotes.find(quote => quote.id === id );
 
-  const [ quote, setQuote ] = useState([]);
+  const [ quote, setQuote ] = useState({});
 
   useEffect(() => {
     const quoteFromContext = quotes.find(quote => quote.id === parseInt(id));
     console.log('quoteFromContext:', quoteFromContext);
     setQuote(quoteFromContext);
-  }, []);
-
-  function fetchQuoteFromApi() {
-    return fetchQuote(id).then(response => response.data);
-  };
+  }, [quotes, id]);
   
   return ( 
-    <Quote quote={quote ? quote : fetchQuoteFromApi()}/> 
+    <Quote quote={quote}/> 
   );
 }
