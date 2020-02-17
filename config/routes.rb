@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root to: 'pages#react'
+  root to: redirect('/quotes')
 
   get 'quotes/', to: 'pages#react'
   get 'quotes/:id', to: 'pages#react'
