@@ -1,11 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export default function Quote({ quote }) {	
 	if (!quote || !quote.id) {
 		return <p>Loading...</p>;
 	}	
 	const { author, author_img, book, content, id } = quote;
+
+	const singleQuote = Boolean(useParams().id);
+
+	function linkToSingleQuote() {
+		return (
+			<Link to={`/quotes/${id}`} >
+				<i className="fas fa-link"></i>
+			</Link>	
+		)
+	}
 
 	return (
 		<div key={id}>
@@ -19,10 +29,7 @@ export default function Quote({ quote }) {
 						<p><cite><strong>{author}</strong></cite></p>
 						<p><cite>{book}</cite></p>
 					</div>
-					{/* Show link to back when showing a single quote */}
-					<Link to={`/quotes/${id}`} >
-						<i className="fas fa-link"></i>
-					</Link>
+					{ !singleQuote ? linkToSingleQuote() : null }
 				</div>
 			</section>
 		</div>
