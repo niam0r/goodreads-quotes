@@ -1,5 +1,5 @@
 import fetchQuotes from '../services/fetchQuotes';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const QuotesContext = React.createContext({quotes: []});
 

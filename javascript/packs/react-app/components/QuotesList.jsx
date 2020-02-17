@@ -8,7 +8,7 @@ export default function QuotesList() {
   return (
     <div className='container'>
       <br/>
-        { quotes.map(quote => <Quote quote={quote} />) }
+        { quotes.map(quote => <Quote key={quote.id} quote={quote} />) }
       <br/>
     </div>
   );
