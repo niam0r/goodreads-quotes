@@ -27,11 +27,10 @@
 # end
 
 require 'rss'
-require 'httparty'
 
 response = HTTParty.get('https://www.goodreads.com/quotes/list_rss/61714489-romain-niam0r')
 
-feed = RSS::Parser.parse response.body
+feed = RSS::Parser.parse(response.body)
 
 feed.items.each do |item|
   puts '--------------------------------------------------------------------------------'
