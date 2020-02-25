@@ -1,39 +1,14 @@
 # frozen_string_literal: true
 
-# require 'open-uri'
+Quote.destroy_all
+puts 'Destroyed all quotes'
 
-# Quote.destroy_all
-# puts 'Destroyed all quotes'
+base_url = 'https://www.goodreads.com'
+my_feed_url = "#{base_url}/quotes/list_rss/61714489-romain-niam0r"
+first_page = "#{my_feed_url}?page=1"
+second_page = "#{my_feed_url}?page=2"
+FetchUserQuotes.new(first_page)
+FetchUserQuotes.new(second_page)
+# TODO: Find out how many items there is in total and deduct pages
 
-# url = 'https://www.goodreads.com/quotes/list_rss/61714489-romain-niam0r'
-# # url = "./app/my_quotes.html"
-# doc = Nokogiri::HTML(open(url), nil, Encoding::UTF_8.to_s)
-
-
-# ???.each do |element|
-
-#   content =
-#   author =
-#   author_img =
-#   book =
-
-#   Quote.create(
-#     content: content,
-#     author: author,
-#     author_img: author_img,
-#     book: book
-#     # TODO: link: link to book on goodreads
-#   )
-# end
-
-require 'rss'
-
-response = HTTParty.get('https://www.goodreads.com/quotes/list_rss/61714489-romain-niam0r')
-
-feed = RSS::Parser.parse(response.body)
-
-feed.items.each do |item|
-  puts '--------------------------------------------------------------------------------'
-  puts item.description
-  puts '--------------------------------------------------------------------------------'
-end
+puts "Quote.count: #{Quote.count}"
