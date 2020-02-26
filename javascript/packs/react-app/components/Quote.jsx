@@ -5,7 +5,7 @@ export default function Quote({ quote }) {
 	if (!quote || !quote.id) {
 		return <p>Loading...</p>;
 	}
-	const { author, author_img, book_img, book_title, content, id } = quote;
+	const { author, book_img, book_title, book_url, content, id } = quote;
 
 	const singleQuote = Boolean(useParams().id);
 
