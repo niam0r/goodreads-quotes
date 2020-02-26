@@ -3,7 +3,6 @@
 json.extract!(
   @quote,
   :author,
-  :author_img,
   :book_img,
   :book_title,
   :content,

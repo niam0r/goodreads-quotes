@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_184238) do
+ActiveRecord::Schema.define(version: 2020_02_26_102912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "quotes", force: :cascade do |t|
     t.string "author"
-    t.string "author_img"
     t.string "book_title"
     t.text "content"
     t.string "link"
