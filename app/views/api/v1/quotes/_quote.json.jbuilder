@@ -3,6 +3,7 @@
 json.call(
   quote,
   :author,
+  :author_img,
   :book_img,
   :book_title,
   :book_url,

@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_120023) do
+ActiveRecord::Schema.define(version: 2020_01_31_121343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "quotes", force: :cascade do |t|
     t.string "author"
+    t.string "author_img"
+    t.string "book_img"
     t.string "book_title"
+    t.string "book_url"
     t.text "content"
-    t.string "link"
+    t.string "goodreads_quote_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "book_img"
-    t.string "book_url"
-    t.string "goodreads_quote_url"
   end
 
 end
