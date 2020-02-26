@@ -5,10 +5,11 @@ class CreateQuotes < ActiveRecord::Migration[6.0]
     create_table :quotes do |t|
       t.string :author
       t.string :author_img
-      t.string :book
+      t.string :book_img
+      t.string :book_title
+      t.string :book_url
       t.text :content
-      t.string :link
-
+      t.string :goodreads_quote_url
       t.timestamps
     end
   end
