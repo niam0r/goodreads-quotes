@@ -17,13 +17,13 @@ class ParseFeedItem
       book_img: extract_book_img,
       content: extract_content,
       book_url: @book_url,
-      # TODO: goodreads_quote_link: item.link.strip
+      goodreads_quote_url: item.link.strip
     )
   end
 
   def extract_book_img
-    # book_page = Nokogiri::HTML(HTTParty.get(@book_url).body)
-    # book_page.search()
+    book_page = Nokogiri::HTML(HTTParty.get(@book_url).body)
+    book_page.search('#coverImage')&.attribute('href')&.value
   end
 
   def extract_book_title
@@ -36,8 +36,9 @@ class ParseFeedItem
   end
 
   def extract_content
-    @item.description.scan(/"([^"]*)"/).to_s
-                     .delete_prefix("[[\"")
-                     .delete_suffix("\"]]")
+    @item.description
+         .scan(/"([^"]*)"/).to_s
+         .delete_prefix("[[\"")
+         .delete_suffix("\"]]")
   end
 end
