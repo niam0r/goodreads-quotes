@@ -5,6 +5,7 @@ json.call(
   :author,
   :book_img,
   :book_title,
+  :book_url,
   :content,
   :goodreads_quote_url,
   :id

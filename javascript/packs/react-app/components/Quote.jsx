@@ -7,6 +7,7 @@ export default function Quote({ quote }) {
 	}
 	const {
 		author,
+		author_img,
 		book_img,
 		book_title,
 		book_url,
@@ -14,21 +15,20 @@ export default function Quote({ quote }) {
 		goodreads_quote_url,
 		id } = quote;
 
-	console.log("book_url", book_url);
-	console.log("goodreads_quote_url", goodreads_quote_url);
-
 	const singleQuote = Boolean(useParams().id);
+
+	function linkedTitle() {
+		return (
+			<a href={book_url} target="_blank" rel='noreferrer noopener'>{book_title}</a>
+		);
+	}
 
 	function linkToSingleQuote() {
 		return (
 			<Link to={`/quotes/${id}`} >
 				<i className="fas fa-link"></i>
 			</Link>
-		)
-	}
-
-	function linkedTitle() {
-		return ( <Link to={book_url}>{book_title}</Link> );
+		);
 	}
 
 	return (
@@ -38,7 +38,11 @@ export default function Quote({ quote }) {
 					<p>{content}</p>
 				</blockquote>
 				<div className="avatar-author-book">
-					{/* <img className="avatar-large" src={book_img} alt={book_title}/> */}
+					<img
+						className="avatar-large"
+						src={book_img ? book_img : author_img }
+						alt={book_img ? book_title : author}
+					/>
 					<div className="author-book">
 						<p><cite><strong>{author}</strong></cite></p>
 						<p><cite>{ book_url ? linkedTitle() : book_title }</cite></p>

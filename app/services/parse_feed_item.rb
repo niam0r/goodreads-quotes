@@ -6,7 +6,6 @@ class ParseFeedItem
   def initialize(item)
     @item = item
     @quote_page = Nokogiri::HTML(HTTParty.get(item.link.strip).body)
-    @book_url ||= extract_book_url
     parse(item)
   end
 
@@ -16,7 +15,7 @@ class ParseFeedItem
       book_title: extract_book_title,
       # book_img: extract_book_img,
       content: extract_content,
-      book_url: @book_url,
+      book_url: extract_book_url,
       goodreads_quote_url: item.link.strip
     )
   end
@@ -32,9 +31,7 @@ class ParseFeedItem
 
   def extract_book_url
     partial_url = @quote_page.search('.bookTitle')&.attribute('href')&.value
-    return nil if partial_url.nil?
-
-    "https://www.goodreads.com#{partial_url}"
+    return "https://www.goodreads.com#{partial_url}"
   end
 
   def extract_content
