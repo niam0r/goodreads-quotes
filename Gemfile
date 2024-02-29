@@ -11,7 +11,7 @@ gem 'nokogiri'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 5.6'
 gem 'rack-cors'
-gem 'rails', '~> 6.0.2'
+gem 'rails', '~> 6.1.7'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 # Use Redis adapter to run Action Cable in production
